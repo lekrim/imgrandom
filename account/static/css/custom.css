@@ -1,0 +1,159 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-image: url("bg-stars.jpg");
+}
+
+/* Modal */
+.my_modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 30px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0);  
+    background-color: rgba(0,0,0,0.9); 
+}
+
+.modal_content {
+    margin: auto;
+    display: block;
+    max-width: 810px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal_content {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+  
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+#close_modal {
+    position: absolute;
+    top: 10px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+  
+#close_modal:hover,
+#close_modal:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    transition-delay: 0.1s !important;
+    color: rgb(109, 205, 230) !important;
+}
+
+.login_link:hover {
+    transition-delay: 0.1s;
+    color: rgb(109, 205, 230);
+    text-decoration: none;
+}
+
+/*--btn--*/
+.btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+input {
+    outline: none !important;
+    border-radius: 1px;
+    padding: 2px 5px;
+}
+
+.label_container {
+    display: inline-block;
+    min-width: 177px;
+}
+
+select {
+    background-color: #fff !important;
+    outline: none !important;
+}
+
+/*--imgset--*/
+.imgset_form_container {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #6B6A6C;
+}
+
+/*-- album --*/
+.card-body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    min-height: 157px;
+    object-fit: fill;
+}
+
+.footer__link {
+    color: rgb(109, 205, 230) !important;
+    text-decoration: none !important;
+}
+
+/* messages */
+.messages {
+    margin: 10px 20%;
+    padding: 0;
+    list-style-type: none;
+}
+
+.messages li.success {
+    margin: 0;
+    padding: 14px 20px;
+    list-style: none;
+    color: #fff;
+}
+
+.messages li.success { background: #81ce81; }
+.messages li.success a { color: #fff; }
+
+.messages li.error {
+    margin: 0;
+    padding: 14px 20px;
+    list-style: none;
+    color: rgb(165, 26, 26);
+}
+
+.messages li.error { background: rgb(201, 125, 125); }
+.messages li.error a { color: rgb(165, 26, 26); }
+
+.messages li a {
+    margin: 0;
+    float: right;
+    opacity: 1;
+    border: 0;
+    box-shadow: none;
+    text-shadow: none;
+    text-decoration: none;
+}
+
+@media (max-width: 767px) {
+    .btn {
+        padding: 3px 6px;
+        font-size: 14px;
+    }
+}

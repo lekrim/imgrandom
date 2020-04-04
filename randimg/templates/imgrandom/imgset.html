@@ -1,0 +1,57 @@
+{% extends "base_template.html" %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %} imgset {% endblock %}
+
+{% block content %}
+    <div id="modal_img_container" class="my_modal">
+        <span id="close_modal">&times;</span>
+        <img class="modal_content" id="modal_img">
+    </div>    
+
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+            <div class="col-sm-12 text-center mt-4 form_info">
+                <h4>Select the needed image properties</h4>
+            </div>
+            <div class="col-sm-8 col-lg-6 imgset_form_container">
+                <form action="." method="POST">
+                    {% csrf_token %}
+                    <div class="d-flex flex-row justify-content-center">
+                        {% for field in form %}
+                            <div class="form-group col-sm-6 d-flex justify-content-center align-items-center">
+                                {{ field.label }}
+                                {{ field|add_class:"form-control-sm" }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="col-sm-12 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-dark">generate</button>
+                    </div>
+                </form>
+            </div>
+            <div class="container-fluid mt-2 mb-3">
+                <div class="row d-flex justify-content-center">
+                    {% if not no_src  %}
+                        {% for img_src in imgs_src %}
+                            <div class="card col-sm-3 text-white bg-secondary m-1">
+                                <img class="card-img-top mt-1" src="{% static img_src %}">
+                                <div class="card-body d-flex flex-column">
+                                    <a href="#" class="btn btn-success mb-1 save_to_album" id="{{img_src}}">Save to Album</a>
+                                    <a href="#modal_img_container" class="btn btn-success full_screen_btn">Full screen</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-sm-12">
+                            <p>You have all iamges with this resolution. go to <a class="login_link" href="{% url 'randimg:show_album' %}">album</a></p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
